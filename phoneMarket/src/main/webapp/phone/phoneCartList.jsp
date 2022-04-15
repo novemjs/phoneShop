@@ -227,11 +227,11 @@
 		</c:if>
 		<c:if test="${cartList==null }">
 			<section class="div_empty">
-				상품 정보가 없습니다.
+				상품정보가 없습니다.
 			</section>
 		</c:if>
 		<nav id="commandList">
-
+	
 		</nav>
 	</section>
 </body>

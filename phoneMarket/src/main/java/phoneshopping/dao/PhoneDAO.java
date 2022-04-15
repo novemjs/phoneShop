@@ -3,6 +3,7 @@ package phoneshopping.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import phoneshopping.vo.Order;
@@ -30,12 +31,12 @@ public class PhoneDAO {
 		return phoneDAO;
 	}//
 	
-	//강아지 목록을 처리하는 메서드
+	//핸드폰 목록을 처리하는 메서드
 	public ArrayList<Phone> selectphoneList(){
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		//강아지 목록을 처리하기 위한 ArrayList
+		//핸드폰 목록을 처리하기 위한 ArrayList
 		ArrayList<Phone> phoneList = null;
 		String sql = "select * from phone order by id desc";
 		
@@ -46,7 +47,7 @@ public class PhoneDAO {
 			if(rs.next()) {//조회한 후에 가져올 데이터 존재여부 체크
 				phoneList = new ArrayList<Phone>();
 				
-				//반복문을 통해 phone테이블의 강아지 내역을 ArrayList에 대입
+				//반복문을 통해 phone테이블의 핸드폰 내역을 ArrayList에 대입
 				do {
 					phoneList.add(new Phone(
 						rs.getInt("id"),
@@ -76,7 +77,7 @@ public class PhoneDAO {
 		return phoneList;
 	}//
 	
-	//특정 아이디에 대한 강아지 내역을 가져오는 메서드
+	//특정 아이디에 대한 핸드폰 내역을 가져오는 메서드
 	public Phone selectphone(int id) {
 		
 		PreparedStatement pstmt = null;
@@ -88,11 +89,11 @@ public class PhoneDAO {
 		try {
 			
 			pstmt = con.prepareStatement(sql);
-			//매개변수로 특정 강아지 데이터 검색
+			//매개변수로 특정 핸드폰 데이터 검색
 			pstmt.setInt(1,id);
 			rs = pstmt.executeQuery();
 			
-			if(rs.next()) { //특정 아이디에 대한 강아지 정보가 존재하면
+			if(rs.next()) { //특정 아이디에 대한 핸드폰 정보가 존재하면
 				phone = new Phone(
 						rs.getInt("id"),
 						rs.getString("kind"),
@@ -145,7 +146,7 @@ public class PhoneDAO {
 		return updateCount;
 	}//
 	
-	//신규 강아지 정보 등록처리하는 메서드
+	//신규 핸드폰 정보 등록처리하는 메서드
 	public int insertphone(Phone phone) {
 		PreparedStatement pstmt = null;
 		int insertCount = 0;

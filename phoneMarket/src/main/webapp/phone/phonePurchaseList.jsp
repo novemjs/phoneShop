@@ -26,7 +26,6 @@
     		 }
     		 priceList+=alist.get(i).getPrice()+" ";
     		 image+=alist.get(i).getImage(); 
-    		 
     	}
     %>
 		<h2>나의 구매목록</h2>

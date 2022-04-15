@@ -66,6 +66,7 @@
 			</c:when>
 			<c:when test="${sessionId!='admin'}">
 				<li style="padding-top:8px; color:black;font-size:22px"><c:forEach var="row" items="${result.rows}"><c:out value="${row.name}"/></c:forEach>님</li>
+				<li style="font-weight:bold" class="nav-item"><a class="btn-lg nav-link" href="<c:url value="../phone/phonePurchaseList.jsp"/>">내 구매목록 </a></li>
 				<li style="font-weight:bold" class="nav-item"><a class="btn-lg nav-link" href="<c:url value="logoutMember.jsp"/>">로그아웃 </a></li>
 				<li style="font-weight:bold" class="nav-item"><a class="btn-lg nav-link" href="<c:url value="updateMember.jsp?id=${sessionId }"/>">회원수정</a></li>
 				<li style="font-weight:bold" class="nav-item"><a class="btn-lg nav-link" href="<c:url value="deleteMember.jsp?id=${sessionId }"/>">회원삭제</a></li>
@@ -80,14 +81,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item" style="font-size:20px;"><a class="nav-link active" aria-current="page" href="mainMenu.jsp">Home</a></li>
-                        <li class="nav-item" style="font-size:20px;"><a class="nav-link" href="#!">About</a></li>
                         <li class="nav-item dropdown"  style="font-size:20px;">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a  style="font-size:20px;" class="dropdown-item" href="http://localhost:8080/phoneMarket/phone/phoneList.phone">모든 제품</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a  style="font-size:20px;" class="dropdown-item" href="#!">인기상품</a></li>
-                              
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
