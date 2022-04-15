@@ -11,7 +11,7 @@ public class PhoneCartQtyUpAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		String kind = request.getParameter("kind");
+		String kind = request.getParameter("name");
 		
 		PhoneCartQtyUpService phoneCartQtyUpService = new PhoneCartQtyUpService();
 		

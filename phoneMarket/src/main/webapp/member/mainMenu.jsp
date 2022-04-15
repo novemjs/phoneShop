@@ -253,12 +253,16 @@
             </div>
         </section>
         <!-- Footer-->
+        <div class="wrapper">
+        </div>
         <footer class="py-5 bg-dark">
             <div class="container"><p style="font-size:20px;" class="m-0 text-center text-white">Copyright &copy; Citizen Inc address:010-9078-2535</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts.js">
+       	
+        </script>
     </body>
 </html>

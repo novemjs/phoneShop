@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="phoneshopping.vo.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,43 +11,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		ArrayList<Phone> sellList=(ArrayList<Phone>)request.getAttribute("phoneList");
-		int orderPrice=0;
-		ArrayList<Order> orderlist=new ArrayList<>();
-		for(int i=0;i<orderlist.size();i++){
-			orderPrice+=orderlist.get(i).getOrderPrice();
-		}
+<%@ include file="top.jsp" %>
+<sql:setDataSource
+		var="conn"
+		driver="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost/phoneshop?serverTimezone=Asia/Seoul"
+		user="phone"
+		password="phone1234"/>
+
+<sql:query dataSource="${conn}" var="rs">
+   select * from orderphone
+</sql:query> 
+		<c:forEach var="sell" items="${rs.rows }">
+			<table>
+				<tr>
+					<td>주문한 userid:</td>
+					<td><c:out value="${sell.userid }"/></td>
+				</tr>
+				<tr>
+					<td>주문한사람 이름:</td>
+					<td><c:out value="${sell.name }"/></td>
+				</tr>
+				<tr>
+					<td>주문 금액</td>
+					<td><c:out value="${sell.orderPrice }원"/></td>
+				</tr>
+			</table>
+		</c:forEach>
 		
-		String nameList="";//초기값
-    	String priceList="";
-    	
-    	for(int i=0;i<sellList.size();i++){
-    		 if(sellList.get(i).getName() != null){
-    			 nameList += sellList.get(i).getName()+" ";
-    		 }
-    		 priceList+=sellList.get(i).getPrice()+" ";
-    		
-    	}
-	%>
-	<form action="#" method="post">
-		<table>
-			<tr>
-				<td>총 팔린 금액:</td>
-				<td><%=orderPrice %></td>
-			</tr>
-			<tr>
-				<td>남은재고:</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				
-			</tr>
-		</table>
-	</form>
 </body>
 </html>

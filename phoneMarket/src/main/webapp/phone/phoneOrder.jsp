@@ -84,6 +84,7 @@
     		 }
     		 
     	}
+    	session.setAttribute("nameList", nameList);
     	if(userId!=null){
     %>
 	<h2 style="text-align:center;">주문자 정보</h2>
@@ -91,7 +92,7 @@
 			<table style="margin:auto;">
 				<tr>
 					<td>주문한 핸드폰:</td>
-					<td><%=nameList %></td>
+					<td><input type="text" name="phoneName" value="<%=nameList %>" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td>아이디:</td>

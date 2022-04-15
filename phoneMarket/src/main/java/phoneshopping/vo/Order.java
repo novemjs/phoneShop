@@ -2,6 +2,7 @@ package phoneshopping.vo;
 
 public class Order {
 	private String userid;
+	private String phoneName;
 	private String name;
 	private String postcd;
 	private String addr1;
@@ -11,9 +12,10 @@ public class Order {
 	private int orderPrice;
 
 	
-	public Order(String userid, String name, String postcd, String addr1, String addr2, int phone, String memo, int orderPrice) {
+	public Order(String userid,String phoneName, String name, String postcd, String addr1, String addr2, int phone, String memo, int orderPrice) {
 		super();
 		this.userid = userid;
+		this.phoneName=phoneName;
 		this.name = name;
 		this.postcd = postcd;
 		this.addr1 = addr1;
@@ -85,6 +87,14 @@ public class Order {
 
 	public void setId(String userid) {
 		this.userid = userid;
+	}
+
+	public String getPhoneName() {
+		return phoneName;
+	}
+
+	public void setPhoneName(String phoneName) {
+		this.phoneName = phoneName;
 	}
 	
 }

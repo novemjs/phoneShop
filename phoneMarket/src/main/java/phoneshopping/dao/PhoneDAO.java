@@ -6,6 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.cj.Session;
+
 import phoneshopping.vo.Order;
 import phoneshopping.vo.Phone;
 import static phoneshopping.db.JdbcUtil.*;
@@ -14,6 +19,7 @@ import static phoneshopping.db.JdbcUtil.*;
 public class PhoneDAO {
 
 	Connection con;
+	
 	private static PhoneDAO phoneDAO;
 	
 	private PhoneDAO() {}
@@ -273,24 +279,25 @@ public class PhoneDAO {
 		System.out.println(phone.getId());
 		PreparedStatement pstmt=null;
 		int OrderSuccess=0;
-		String sql="insert into orderphone values(null,?,?,?,?,?,?,?,?,now())";
+		String sql="insert into orderphone values(null,?,?,?,?,?,?,?,?,?,now())";
 		String sql2="update phone " +
 				 	"	set stockqty=stockqty-1" +
-				 	" where id=?";
+				 	" where name=?";
 				
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, order.getId());
-			pstmt.setString(2, order.getName());
-			pstmt.setString(3, order.getPostcd());
-			pstmt.setString(4, order.getAddr1());
-			pstmt.setString(5, order.getAddr2());
-			pstmt.setInt(6, order.getPhone());
-			pstmt.setString(7, order.getMemo());
-			pstmt.setInt(8, order.getOrderPrice());
+			pstmt.setString(2, order.getPhoneName());
+			pstmt.setString(3, order.getName());
+			pstmt.setString(4, order.getPostcd());
+			pstmt.setString(5, order.getAddr1());
+			pstmt.setString(6, order.getAddr2());
+			pstmt.setInt(7, order.getPhone());
+			pstmt.setString(8, order.getMemo());
+			pstmt.setInt(9, order.getOrderPrice());
 			OrderSuccess=pstmt.executeUpdate();
 			pstmt=con.prepareStatement(sql2);
-			pstmt.setInt(1, phone.getId());
+			pstmt.setString(1,order.getPhoneName());
 			pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

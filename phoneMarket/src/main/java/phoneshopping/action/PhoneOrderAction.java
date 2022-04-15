@@ -16,8 +16,8 @@ public class PhoneOrderAction implements Action{
 		
 		PhoneOrderService phoneOrderService=new PhoneOrderService();
 		
-		
 		Order order=new Order(request.getParameter("id"),
+							request.getParameter("phoneName"),
 							request.getParameter("name"),
 							request.getParameter("postcd"),
 							request.getParameter("addr1"),
