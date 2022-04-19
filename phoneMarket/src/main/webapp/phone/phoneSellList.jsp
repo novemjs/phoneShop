@@ -11,7 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="top.jsp" %>
+<%@ include file="top.jsp
+
+%>
 <sql:setDataSource
 		var="conn"
 		driver="com.mysql.cj.jdbc.Driver"
@@ -20,7 +22,7 @@
 		password="phone1234"/>
 
 <sql:query dataSource="${conn}" var="rs">
-   select * from orderphone
+   select * from orderphone 
 </sql:query> 
 		<c:forEach var="sell" items="${rs.rows }">
 			<table>

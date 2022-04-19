@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import phoneshopping.action.*;
-import phoneshopping.action.PhoneListAction;
-import phoneshopping.action.PhoneViewAction;
 import phoneshopping.vo.ActionForward;
 
 @WebServlet("*.phone")

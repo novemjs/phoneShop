@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import phoneshopping.svc.PhoneOrderService;
 import phoneshopping.vo.ActionForward;
@@ -26,6 +27,7 @@ public class PhoneOrderAction implements Action{
 							request.getParameter("memo"),
 							Integer.parseInt(request.getParameter("orderPrice")));
 		
+		
 		boolean isOrderSuccess=phoneOrderService.orderAmt(order);
 		
 		ActionForward forward=null;
@@ -36,6 +38,7 @@ public class PhoneOrderAction implements Action{
 			forward.setRedirect(true);
 			//핸드폰 판매목록 리스트로 이동
 			forward.setPath("phonePurchaseList.jsp");
+			
 			
 		}else { //결제 실패
 			response.setContentType("text/html;charset=UTF-8");

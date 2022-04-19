@@ -66,7 +66,7 @@
 				<tr>
 					<%-- varStatus:행의 상태값을 가져올수 잇다 --%>
 					<c:forEach var="phone" items="${phoneList }" varStatus="status">
-						<td style="text-align:cetner">
+						<td style="text-align:center">
 							<%-- 이미지를 클릭하면 phoneView.phone(상세보기 url)로 이동  --%>
 							<a href="phoneView.phone?id=${phone.id }">
 								<img style="" src="${pageContext.request.contextPath}/resources/images/${phone.image}" id="productImage">
