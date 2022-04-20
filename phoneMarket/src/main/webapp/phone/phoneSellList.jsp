@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="top.jsp
+<%@ include file="top.jsp"
 
 %>
 <sql:setDataSource
@@ -24,22 +24,21 @@
 <sql:query dataSource="${conn}" var="rs">
    select * from orderphone 
 </sql:query> 
+	<table class="table table-striped">
+		<tr id="tr_top">
+			<td>유저id</td>
+			<td>주문한고객 이름</td>
+			<td>주문 금액</td>
+		</tr>
 		<c:forEach var="sell" items="${rs.rows }">
-			<table>
-				<tr>
-					<td>주문한 userid:</td>
-					<td><c:out value="${sell.userid }"/></td>
-				</tr>
-				<tr>
-					<td>주문한사람 이름:</td>
-					<td><c:out value="${sell.name }"/></td>
-				</tr>
-				<tr>
-					<td>주문 금액</td>
-					<td><c:out value="${sell.orderPrice }원"/></td>
-				</tr>
-			</table>
+		<tr>
+			<td><c:out value="${sell.userid }"/></td>
+			<td><c:out value="${sell.name }"/></td>
+			<td><c:out value="${sell.orderPrice }원"/></td>
+		</tr>
 		</c:forEach>
-		
+	</table>
+
+
 </body>
 </html>

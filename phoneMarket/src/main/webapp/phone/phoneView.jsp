@@ -7,7 +7,7 @@
 <style>
 	#listForm{
 		width:640px;
-		border:1px solid red;
+		border:1px solid ;
 		margin:auto;
 	}
 	h2{
