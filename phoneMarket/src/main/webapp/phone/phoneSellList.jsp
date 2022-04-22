@@ -23,10 +23,18 @@
 
 <sql:query dataSource="${conn}" var="rs">
    select * from orderphone 
-</sql:query> 
-	<table class="table table-striped">
+</sql:query>
+	<form></form> 
+	<select>
+		<option></option>
+		<option></option>
+		<option></option>
+		<option></option>
+	</select>
+	<table class="table table-striped" style="text-align:center;">
+		
 		<tr id="tr_top">
-			<td>유저id</td>
+			<td>주문한 유저 아이디</td>
 			<td>주문한고객 이름</td>
 			<td>주문 금액</td>
 		</tr>

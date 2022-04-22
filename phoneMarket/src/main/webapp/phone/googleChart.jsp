@@ -35,30 +35,25 @@
 		var data = new google.visualization.DataTable();
 
 		data.addColumn('string', 'phoneName');
-		data.addColumn('number', 'orderPrice');
+		data.addColumn('number','orderPrice');
 
 		/* json 데이터를 가져온다. */
 		for (var i=0;i<queryObjectLen;i++) {
 			
 			//사원명
-			var phoneName = queryObject.phoneList[i].phoneName;
+			var phoneName = queryObject.empdetails[i].phoneName;
 			//판매수량
-			var orderPrice = queryObject.phoneList[i].orderPrice;
+			var orderPrice=queryObject.empdetails[i].orderPrice;
 			
 			//JSON 형태의 데이터를 구글 차트에 추가
-			data.addRows([ [ phoneName,orderPrice] ]);
+			data.addRows([ [ phoneName,orderPrice ] ]);
 		}
 
 		var options = {
-			title : '사원별 판매 현황',
+			title : '핸드폰별 판매 현황',
 		};
-
-		var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-
-		chart.draw(data, options);
 		
-		
-		var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
 
 		chart.draw(data, options);
 	}

@@ -203,8 +203,8 @@
 			<div class="form-group row">
 				<label class="col-sm-2">성별</label>
 				<div class="col-sm-10">
-					<input name="gender" type="radio" value="남"/><span>남</span> 
-					<input name="gender" type="radio" value="여"/><span>여</span>
+					<input name="gender" type="radio" value="남" <c:if test="${row.gender=='남' }">checked</c:if>/><span>남</span> 
+					<input name="gender" type="radio" value="여" <c:if test="${row.gender=='여' }">checked</c:if>/><span>여</span>
 				</div>
 			</div>
 		

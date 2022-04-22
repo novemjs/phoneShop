@@ -103,7 +103,7 @@
 							        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
 						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRegistForm.jsp"/>">상품 등록</a></li>		
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 목록</a></li>
-						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRemove.jsp"/>">상품 삭제 </a></li>              
+						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 삭제 </a></li>              
 						              <li><a class="dropdown-item" href="<c:url value="../member/memberList.jsp"/>">회원목록</a></li>
 							          <li><a class="dropdown-item" href="<c:url value="../member/logoutMember.jsp"/>">로그아웃 </a></li>
 								      <li><a class="dropdown-item" href="<c:url value="../member/deleteMember.jsp"/>">회원 삭제</a></li>
@@ -127,7 +127,7 @@
                 </div>
             </div>
         </nav>
-        <footer class="py-5 bg-dark ">
+        <footer class="py-4 bg-dark ">
             <div class="container"><p style="font-size:20px;" class="m-0 text-center text-white">Copyright &copy; Citizen Inc address:010-9078-2535</p></div>
         </footer>
         <!-- Bootstrap core JS-->

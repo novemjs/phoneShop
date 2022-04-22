@@ -5,16 +5,24 @@
 <%@page import="org.json.JSONObject"%>
 <%
 
+/* CREATE TABLE employee (
+		  id int NOT NULL AUTO_INCREMENT,
+		  name varchar(50) DEFAULT NULL,
+		  saleqty int NOT NULL,
+		  PRIMARY KEY (`id`)
+		); 
+ */
+
 Connection con = null;
 try {
 	Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/phoneshop?servertimezone=Asia/Seoul", "phone", "phone1234");
 
 	ResultSet rs = null;
-	List phoneList = new LinkedList();
+	List empdetails = new LinkedList();
 	JSONObject responseObj = new JSONObject();
 
-	String query = "SELECT orderPrice,phoneName from orderphone";
+	String query = "SELECT * from orderphone";
 	PreparedStatement pstm = con.prepareStatement(query);
 
 	rs = pstm.executeQuery();
@@ -22,20 +30,20 @@ try {
 
 	while (rs.next()) {
 		
-		int orderPrice=rs.getInt("orderPrice");
 		String phoneName=rs.getString("phoneName");
+		int orderPrice=rs.getInt("orderPrice");
 		
 		//테이블에서 가져온 데이터를 JSON 형태로 대입하기 위해 선언
 		empObj = new JSONObject();
 		
+		empObj.put("phoneName", phoneName);
 		empObj.put("orderPrice",orderPrice);
-		empObj.put("phoneName",phoneName);
 		
 		//JSON 에 추가
-		phoneList.add(empObj);
+		empdetails.add(empObj);
 	}
 	
-	responseObj.put("phoneList", phoneList);
+	responseObj.put("empdetails", empdetails);
 	
 	out.print(responseObj.toString());
 	

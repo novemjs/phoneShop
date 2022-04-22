@@ -24,6 +24,8 @@
 	</sql:query>
 	<h2>나의 구매목록</h2>
 	<c:forEach var="par" items="${rs.rows }">
+		<form action="phoneCancel.phone" method="post">
+			<input type="hidden" name="id" value="${par.id }">
 			<table class="table table-striped" style="text-align:center">
 				<tr id="tr_top">
 					<td>핸드폰 이름</td>
@@ -31,15 +33,18 @@
 					<td>요청사항</td>
 					<td>입력주소</td>
 					<td>상세주소</td>
+					<td>취소여부</td>
 				</tr>
 				<tr>
 					<td><c:out value="${par.phoneName }"/></td>
 					<td><c:out value="${par.orderPrice }"/></td>
 					<td><c:out value="${par.memo }"/></td>
-					<td><c:out value="${par.postcd }"/></td>
+					<td><c:out value="${par.addr1 }"/></td>
 					<td><c:out value="${par.addr2 }"/></td>
+					<td><input type="submit" value="주문취소"></td>
 				</tr>
 			</table>
+		</form>
 	</c:forEach>
 	</body>
 </html>

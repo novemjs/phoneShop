@@ -50,7 +50,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item" style="font-size:20px;"><a class="nav-link active" aria-current="page" href="mainMenu.jsp">Home</a></li>
-                        <li class="nav-item" style="font-size:20px;"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item" style="font-size:20px;"><a class="nav-link" href="about.jsp">About</a></li>
                         <li class="nav-item dropdown"  style="font-size:20px;">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -93,7 +93,7 @@
 							        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
 						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRegistForm.jsp"/>">상품 등록</a></li>		
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 목록</a></li>
-						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRemove.jsp"/>">상품 삭제 </a></li>              
+						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 삭제 </a></li>              
 						              <li><a class="dropdown-item" href="<c:url value="memberList.jsp"/>">회원목록</a></li>
 							          <li><a class="dropdown-item" href="<c:url value="logoutMember.jsp"/>">로그아웃 </a></li>
 								      <li><a class="dropdown-item" href="<c:url value="deleteMember.jsp"/>">회원 삭제</a></li>
@@ -145,7 +145,7 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="http://localhost:8080/phoneMarket/phone/phoneCartList.phone?id=4">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
@@ -154,20 +154,20 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=13"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/아이폰11pro.jfif" alt="..." /></a>
+                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=23"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/갤럭시 A32.png" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">아이폰 11pro</h5>
+                                    <h5 class="fw-bolder">갤럭시 A32</h5>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">1500000</span>
-                                    1400000
+                                    <span class="text-muted text-decoration-line-through">600000</span>
+                                    580000
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="phoneCartAdd.phone?id=23">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=10"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/z플립.jfif" alt="..." /></a>
+                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=29"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/z플립.jfif" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -189,14 +189,14 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="phoneCartAdd.phone?id=29">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=4"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/s22.jfif" alt="..." /></a>
+                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=24"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/아이폰13pro.png" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -211,12 +211,12 @@
                                         <div class="bi-star-fill"></div>
                                     </div>
                                     <!-- Product price-->
-                                    800000
+                                    1100000
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="phoneCartAdd.phone?id=24">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
@@ -225,39 +225,39 @@
                             <!-- Sale badge-->
                             <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <!-- Product image-->
-                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=9"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/s21.jfif" alt="..." /></a>
+                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=28"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/13미니.jfif" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">아이폰se2</h5>
+                                    <h5 class="fw-bolder">아이폰13미니</h5>
                                     <!-- Product price-->
-                                    <span class="text-muted text-decoration-line-through">$50.00</span>
-                                    700000
+                                    <span class="text-muted text-decoration-line-through">900000</span>
+                                    800000
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="phoneCartAdd.phone?id=28">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="card h-100">
                             <!-- Product image-->
-                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=11"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/a12.jfif" alt="..." /></a>
+                            <a href="http://localhost:8080/phoneMarket/phone/phoneView.phone?id=27"><img class="card-img-top" src="${pageContext.request.contextPath}/resources/images/갤럭시 jump.png" alt="..." /></a>
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">갤럭시 a12</h5>
+                                    <h5 class="fw-bolder">갤럭시 jump</h5>
                                     <!-- Product price-->
-                                    250000
+                                    340000
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">장바구니 담기</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/phone/phoneCartAdd.phone?id=27">장바구니 담기</a></div>
                             </div>
                         </div>
                     </div>
@@ -265,7 +265,7 @@
             </div>
         </section>
         <!-- Footer-->
-        <footer class="py-5 bg-dark " >
+        <footer class="py-4 bg-dark " >
             <div class="container"><p style="font-size:20px;" class="m-0 text-center text-white">Copyright &copy; Citizen Inc address:010-9078-2535</p></div>
         </footer>
         <!-- Bootstrap core JS-->

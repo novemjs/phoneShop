@@ -24,16 +24,16 @@ public class PhoneViewAction implements Action {
 		//가져온 강아지 정보를 jsp에서 출력하기 위해 속성 지정
 		request.setAttribute("phone", phone);
 		
-		//오늘 상세보기를 한 강아지 이미지를 모두 쿠키로 생성
-		Cookie todayImageCookie = 
-				 new Cookie("today"+id,phone.getImage());
-		
-		//쿠키 유효시간(1일)
-		todayImageCookie.setMaxAge(60*60*24);
-		
-		//생성된 쿠키를 클라이언트로 전송
-		response.addCookie(todayImageCookie);
-		
+//		//오늘 상세보기를 한 강아지 이미지를 모두 쿠키로 생성
+//		Cookie todayImageCookie = 
+//				 new Cookie("today"+id,phone.getImage());
+//		
+//		//쿠키 유효시간(1일)
+//		todayImageCookie.setMaxAge(60*60*24);
+//		
+//		//생성된 쿠키를 클라이언트로 전송
+//		response.addCookie(todayImageCookie);
+//		
 		ActionForward forward = 
 				new ActionForward("phoneView.jsp",false);
 		

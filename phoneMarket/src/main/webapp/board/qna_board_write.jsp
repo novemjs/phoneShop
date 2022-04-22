@@ -33,6 +33,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 	<%@ include file="top.jsp" %>
 	<section id="writeForm">
 		<h2>게시판글등록</h2>
@@ -40,7 +41,7 @@
 			<table>
 				<tr>
 					<td class="td_left"><label for="board_name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="board_name" id="board_name" required="required"></td>
+					<td class="td_right"><input type="text" name="board_name" id="board_name" required="required" value="${sessionId }" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="board_pass">비밀번호</label></td>

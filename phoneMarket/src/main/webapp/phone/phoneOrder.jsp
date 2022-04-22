@@ -70,6 +70,17 @@
 </script>
 <body>
 <%@ include file="top.jsp" %>
+	<sql:setDataSource
+		var="conn"
+		driver="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost/phoneshop?serverTimezone=Asia/Seoul"
+		user="phone"
+		password="phone1234"/>
+	<sql:query dataSource="${conn}" var="rs">
+		select * from member where id=?
+		<sql:param value="<%=sessionId %>"/>
+	</sql:query>
+
 
     <%
     	String userId=(String)session.getAttribute("sessionId");
@@ -87,6 +98,7 @@
     	session.setAttribute("nameList", nameList);
     	if(userId!=null){
     %>
+    <c:forEach var="ord" items="${rs.rows }">
 	<h2 style="text-align:center;">주문자 정보</h2>
 		<form action="phoneOrder.phone" method="post">
 			<table style="margin:auto;">
@@ -97,7 +109,7 @@
 				<tr>
 					<td>아이디:</td>
 					<td>
-						<input type="text" name="id">
+						<input type="text" name="id" value="${ord.id }" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
@@ -105,27 +117,27 @@
 						이름:
 					</td>
 					<td>
-						<input type="text" name="name">
+						<input type="text" name="name" value="${ord.name }" readonly="readonly">
 					</td>
 				</tr>
 				<tr>
 					<td>우편번호:</td>
 					<td>
-						<input type="text" name="postcd" id="postcd">
+						<input type="text" name="postcd" id="postcd" value="${ord.postcd }">
 						<input type="button" value="우편번호 찾기" onclick="Postcode()">
 					</td>
 				</tr>
 				<tr>
 					<td>주소:</td>
-					<td><input type="text" name="addr1" id="addr1" ></td>
+					<td><input type="text" name="addr1" id="addr1" value="${ord.addr1 }"></td>
 				</tr>
 				<tr>
 					<td>상세주소:</td>
-					<td><input type="text" name="addr2" id="addr2" ></td>
+					<td><input type="text" name="addr2" id="addr2" value="${ord.addr2 }"></td>
 				</tr>
 				<tr>
 					<td>연락처:</td>
-					<td><input type="text" name="phone" ></td>
+					<td><input type="text" name="phone" value="${ord.phone }"></td>
 				</tr>
 				<tr>
 					<td>메모:</td>
@@ -143,6 +155,7 @@
 				</tr>
 			</table>
 		</form>
+	</c:forEach>
 		
 	<%}%>
 </body>

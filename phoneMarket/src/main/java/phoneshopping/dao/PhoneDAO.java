@@ -307,4 +307,22 @@ public class PhoneDAO {
 		return OrderSuccess;
 	}
 	
+	public int cancelPhone(int id) {
+		PreparedStatement pstmt=null;
+		String sql="delete from orderphone where id=?";
+		int cancelCount=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+
+			pstmt.setInt(1, id);
+
+			cancelCount=pstmt.executeUpdate();
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return cancelCount;
+	}
 }

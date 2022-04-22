@@ -36,8 +36,8 @@
 							상품명:${phone.name }<br>
 							가격:${phone.price }원<br>
 						</td>
-						<%-- 강아지 목록을 4개씩 화면에 출력 mod=%와 같다 --%>
-						<c:if test="${((status.index+1)mod 4)==0 }">
+						<%-- 강아지 목록을 6개씩 화면에 출력 mod=%와 같다 --%>
+						<c:if test="${((status.index+1)mod 6)==0 }">
 				</tr>
 				<tr>
 						</c:if>
@@ -58,10 +58,10 @@
 					<tr>
 						<c:forEach var="todayImage" items="${todayImageList }" varStatus="status">
 						<td>
-							<img src="../resources/images/${todayImage }" id="todayImage"/>
+							<img class="img-fluid" style="width:200px;" src="../resources/images/${todayImage }" id="todayImage"/>
 						</td>
-							오늘 클릭한 강아지 정보도 한행에 4개씩 출력
-							<c:if test="${((status.index+1)mod 4)==0 }">
+							오늘 클릭한 강아지 정보도 한행에 6개씩 출력
+							<c:if test="${((status.index+1)mod 6)==0 }">
 					</tr>
 					<tr>
 							</c:if>

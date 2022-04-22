@@ -50,7 +50,7 @@
 			<table>
 				<tr>
 					<td class="td_left"><label for="board_name">글쓴이</label></td>
-					<td class="td_right"><input type="text" name="board_name" id="board_name"></td>
+					<td class="td_right"><input type="text" name="board_name" id="board_name" value="${sessionId }" readonly="readonly"></td>
 				</tr>
 				<tr>
 					<td class="td_left"><label for="board_pass">비밀번호</label></td>

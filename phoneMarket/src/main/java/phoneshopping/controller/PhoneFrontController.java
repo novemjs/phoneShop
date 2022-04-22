@@ -147,7 +147,16 @@ public class PhoneFrontController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		//주문취소처리
+		}else if(command.equals("/phone/phoneCancel.phone")){
+			action=new PhoneCancelAction();
+			try {
+				forward=action.execute(req, resp);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
+
 		
 			
 		

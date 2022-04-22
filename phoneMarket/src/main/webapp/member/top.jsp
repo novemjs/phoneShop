@@ -66,8 +66,6 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a  style="font-size:20px;" class="dropdown-item" href="http://localhost:8080/phoneMarket/phone/phoneList.phone">모든 제품</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a  style="font-size:20px;" class="dropdown-item" href="#!">안드로이드</a></li>
-                              	<li><a  style="font-size:20px;" class="dropdown-item" href="#!">아이폰</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown"  style="font-size:20px;">
@@ -103,7 +101,7 @@
 							        <ul class="dropdown-menu"  aria-labelledby="navbarDropdown">
 						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRegistForm.jsp"/>">상품 등록</a></li>		
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 목록</a></li>
-						              <li><a class="dropdown-item" href="<c:url value="../phone/phoneRemove.jsp"/>">상품 삭제 </a></li>              
+						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneList.phone"/>">상품 삭제 </a></li>              
 						              <li><a class="dropdown-item" href="<c:url value="memberList.jsp"/>">회원목록</a></li>
 							          <li><a class="dropdown-item" href="<c:url value="logoutMember.jsp"/>">로그아웃 </a></li>
 								      <li><a class="dropdown-item" href="<c:url value="deleteMember.jsp"/>">회원 삭제</a></li>
@@ -127,7 +125,7 @@
                 </div>
             </div>
         </nav>
-        <footer class="py-5 bg-dark ">
+        <footer class="py-4 bg-dark ">
             <div class="container"><p style="font-size:20px;" class="m-0 text-center text-white">Copyright &copy; Citizen Inc address:010-9078-2535</p></div>
         </footer>
         <!-- Bootstrap core JS-->
