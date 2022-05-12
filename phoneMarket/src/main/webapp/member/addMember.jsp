@@ -101,6 +101,7 @@
 </script>  -->
 
 <script>
+
 	//유효성 검사 (필수항목 입력여부 체크)
 	function checkValue() {
 		
@@ -118,7 +119,6 @@
 			id.select();
 			id.focus();
 			return false;
-			
 		}
 		
 		if(!passwd){
@@ -157,7 +157,7 @@
 		}
 		
 		//서버로 전송
-		document.newMember.submit();
+		return document.newMember.submit();
 		
 	}		
 </script>
@@ -171,7 +171,7 @@
  </style>
 </head>
 <body>
-
+	<%@ include file="top.jsp" %>
 	<div class="jumbotron" style="font-family: 'Jua', sans-serif;">
 		<div class="container">
 			<h1 class="display-6">회원 가입</h1>
@@ -185,7 +185,6 @@
 				<label class="col-sm-2">아이디</label>
 				<div class="col-sm-3">
 					<input  name="id" id="id" type="text" class="form-control text-center" placeholder="아이디입력" >
-					<!-- <input type="button" value="중복확인" onclick="idCheck()"> -->
 				</div>
 			</div>
 			<div class="form-group  row">
@@ -262,5 +261,6 @@
 			</div>
 		</form>
 	</div>
+	<%@ include file="bottom.jsp" %>
 </body>
 </html>

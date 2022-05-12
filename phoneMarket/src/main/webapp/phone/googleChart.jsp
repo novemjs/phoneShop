@@ -5,7 +5,7 @@
 <head>
 <title>구글차트 With mysql</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 	var queryObject = "";
@@ -56,11 +56,15 @@
 		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div2'));
 
 		chart.draw(data, options);
+		
+		var chart = new google.visualization.PieChart(document.getElementById('chart_div1'));
+
+		chart.draw(data, options);
 	}
 </script>
 </head>
 <body>
-	<div id="chart_div"></div>
+	<div id="chart_div1"></div>
 	<div id="chart_div2"></div>
 </body>
 </html>

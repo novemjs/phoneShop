@@ -274,7 +274,7 @@ public class PhoneDAO {
 	public int orderPhone(Order order,int totalCnt) {
 		PreparedStatement pstmt=null;
 		int OrderSuccess=0;
-		String sql="insert into orderphone values(null,?,?,?,?,?,?,?,?,?,?,?,now())";
+		String sql="insert into orderphone values(null,?,?,?,?,?,?,?,?,?,?,?,'배송준비중',now())";
 			
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -388,14 +388,15 @@ public class PhoneDAO {
 	}
 	
 	// 취소시 재고 올리기
-	public int stockup(int id) {
+	public int stockup(int id,int cnt) {
 		PreparedStatement pstmt=null;
 		int stockCount=0;
-		String sql="update phone set stockqty=stockqty+1 where id=?";
+		String sql="update phone set stockqty=stockqty+? where id=?";
 		
 		try {
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setInt(1, cnt);
+			pstmt.setInt(2, id);
 			stockCount=pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -440,6 +441,61 @@ public class PhoneDAO {
 			close(pstmt);
 		}
 		return updateCount;
+	}
+	
+	//배송 여부 변경하기
+	public int sendIt(int ordersnt) {
+		PreparedStatement pstmt=null;
+		String sql="update orderphone set ordering='배송완료' where ordersnt=?";
+		int sendSuccess=0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, ordersnt);
+			
+			sendSuccess=pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("수정에러:"+e.getMessage());
+		}finally {
+			close(pstmt);
+		}
+		return sendSuccess;
+	}
+	
+	//날짜별 판매현황
+	public ArrayList<Order> searchDate(String startDate,String endDate,String pcode) {
+		Connection con = getConnection();
+		
+		phoneDAO.setConnection(con);
+		
+		ArrayList<Order> sellList = new ArrayList<Order>();
+		try {
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			String sql = "select * from orderphone where DATE_FORMAT(orderDate, '%Y%m%d') between ? and ? and cast(id as char) like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, startDate);
+			pstmt.setString(2, endDate);
+			pstmt.setString(3, pcode);
+			
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				Order od=new Order();
+				od.setOrdersnt(rs.getInt("ordersnt"));
+				od.setPhoneName(rs.getString("phoneName"));
+				od.setName(rs.getString("name"));
+				od.setCnt(rs.getInt("cnt"));
+				od.setUserid(rs.getString("userid"));
+				od.setPrice(rs.getInt("orderPrice"));
+				od.setMemo(rs.getString("memo"));
+				od.setOrderDate(rs.getString("orderDate"));
+				od.setOrdering(rs.getString("ordering"));
+				sellList.add(od);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+		}
+		return sellList;
 	}
 	
 	

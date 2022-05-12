@@ -12,7 +12,7 @@ public class PhoneCartRemoveAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		//장바구니에서 삭제하려는 핸드폰 품목을 가져와서 문자열 배열에 대입
+		//장바구니에서 삭제하려는 강아지 품목을 가져와서 문자열 배열에 대입
 		String[] kindArray = 
 				request.getParameterValues("remove");
 		

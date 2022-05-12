@@ -50,6 +50,7 @@
 						휴대폰이 없습니다.
 					</div>
 				</c:if>
+				
 	</section>
 	<%@ include file="../member/bottom.jsp" %>
 	

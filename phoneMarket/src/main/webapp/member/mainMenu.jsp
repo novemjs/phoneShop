@@ -58,6 +58,12 @@
 			   }
     </style>
     <body>
+    <script>
+    	var carousel = new bootstrap.Carousel(myCarousel, {
+    	  interval: 2000,
+    	  wrap: false
+    	})
+    </script>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" style="font-family: 'Jua', sans-serif;">
         	
@@ -337,7 +343,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
     </body>
 
 </html>

@@ -26,7 +26,7 @@ public class PhoneRemoveAction implements Action{
 			forward = new ActionForward();
 			
 			forward.setRedirect(true);
-			//핸드폰 목록 리스트로 이동
+			//강아지 목록 리스트로 이동
 			forward.setPath("phoneList.phone");
 			
 		}else { //삭제 실패

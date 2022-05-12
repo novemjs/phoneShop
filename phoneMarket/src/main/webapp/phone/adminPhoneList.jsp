@@ -19,7 +19,7 @@
 <sql:query dataSource="${conn}" var="rs">
    select * from phone
 </sql:query>
-	<table class="table table-sm" style="text-align:center;">
+	<table class="table table-sm" style="text-align:center;font-family: 'Jua', sans-serif;">
 		<tr id="tr_top" class="table-primary">
 			<th scope="col">#</th>
 			<td scope="col">핸드폰 종류</td>

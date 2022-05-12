@@ -13,7 +13,7 @@ import phoneshopping.svc.PhoneRegistService;
 import phoneshopping.vo.ActionForward;
 import phoneshopping.vo.Phone;
 
-//핸드폰 정보 신규 등록 처리
+//강아지 정보 신규 등록 처리
 public class PhoneRegistAction implements Action {
 
 	@Override
@@ -29,6 +29,7 @@ public class PhoneRegistAction implements Action {
 		
 		//ServletContext context = request.getServletContext();
 		//이미지가 업로드 되는 폴더
+		//realFolder="C:\\Users\\admin\\Desktop\\프로그래밍\\JspStudy\\phoneMarket\\src\\main\\webapp\\resources\\images";
 		realFolder = "D:\\jspStudy\\phoneMarket\\src\\main\\webapp\\resources\\images";
 		
 		MultipartRequest multi = new MultipartRequest(
@@ -55,7 +56,7 @@ public class PhoneRegistAction implements Action {
 						0,new Date(),null
 );
 		
-		//핸드폰 정보 등록처리
+		//강아지 정보 등록처리
 		boolean isRegistSuccess = phoneRegistService.registphone(phone);
 		
 		ActionForward forward = null;
@@ -65,7 +66,7 @@ public class PhoneRegistAction implements Action {
 			forward = new ActionForward();
 			
 			forward.setRedirect(true);
-			//핸드폰 목록 리스트로 이동
+			//강아지 목록 리스트로 이동
 			forward.setPath("phoneList.phone");
 			
 		}else { //등록 실패

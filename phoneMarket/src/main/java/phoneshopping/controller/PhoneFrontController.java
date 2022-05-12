@@ -9,7 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import phoneshopping.action.*;
+import phoneshopping.action.Action;
+import phoneshopping.action.PhoneCancelAction;
+import phoneshopping.action.PhoneCartAddAction;
+import phoneshopping.action.PhoneCartListAction;
+import phoneshopping.action.PhoneCartQtyDownAction;
+import phoneshopping.action.PhoneCartQtyUpAction;
+import phoneshopping.action.PhoneCartRemoveAction;
+import phoneshopping.action.PhoneCartSearchAction;
+import phoneshopping.action.PhoneListAction;
+import phoneshopping.action.PhoneOrderAction;
+import phoneshopping.action.PhoneRegistAction;
+import phoneshopping.action.PhoneRegistFormAction;
+import phoneshopping.action.PhoneRemoveAction;
+import phoneshopping.action.PhoneReviewAction;
+import phoneshopping.action.PhoneReviewDeleteAction;
+import phoneshopping.action.PhoneReviewModifyAction;
+import phoneshopping.action.PhoneSendAction;
+import phoneshopping.action.PhoneUpdateAction;
+import phoneshopping.action.PhoneViewAction;
 import phoneshopping.vo.ActionForward;
 
 @WebServlet("*.phone")
@@ -173,6 +191,14 @@ public class PhoneFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/phone/reviewUpdate.phone")) {
 			action=new PhoneReviewModifyAction();
+			try {
+				forward=action.execute(req, resp);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		//배송여부확인 처리
+		}else if(command.equals("/phone/phoneSend.phone")) {
+			action=new PhoneSendAction();
 			try {
 				forward=action.execute(req, resp);
 			}catch(Exception e) {

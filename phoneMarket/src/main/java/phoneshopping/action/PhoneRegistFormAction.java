@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import phoneshopping.vo.ActionForward;
 
-//핸드폰 정보 입력 화면 처리
+//강아지 정보 입력 화면 처리
 public class PhoneRegistFormAction implements Action {
 
 	@Override

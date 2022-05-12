@@ -34,7 +34,7 @@ public class PhoneCancelService {
 
 	}
 	
-	public boolean stockup(int id) {
+	public boolean stockup(int id,int cnt) {
 		Connection con=getConnection();
 
 		PhoneDAO phoneDAO=PhoneDAO.getInstance();
@@ -43,7 +43,7 @@ public class PhoneCancelService {
 
 		phoneDAO.setConnection(con);
 		
-		int stockCount=phoneDAO.stockup(id);
+		int stockCount=phoneDAO.stockup(id,cnt);
 
 		if(stockCount>0) {
 			commit(con);

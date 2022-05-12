@@ -18,7 +18,7 @@ public class PhoneCartListAction implements Action {
 		PhoneCartListService phoneCartListService 
 		                = new PhoneCartListService();
 		
-		//핸드폰 장바구니 목록을 가져와서 ArrayList에 대입
+		//강아지 장바구니 목록을 가져와서 ArrayList에 대입
 		ArrayList<Cart> cartList = 
 				 phoneCartListService.getCartList(request);
 		ActionForward forward = null;

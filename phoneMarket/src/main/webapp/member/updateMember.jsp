@@ -4,9 +4,6 @@
 
 <html>
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,7 +16,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
-<script>
+<!-- <script>
 	$(document).ready(function () {
 	   $(function () {
 	            $('#phone').keydown(function (event) {
@@ -40,7 +37,7 @@
 	         })
 	   });
 	});
-</script>
+</script> -->
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -97,7 +94,7 @@
 <script>
 	//유효성 검사(필수항목 입력여부 체크)
 	function checkValue(){
-		var id=documnt.getElemeentById("id").value;
+		var id=document.getElementById("id").value;
 		var passwd=document.getElementById("passwd").value;
 		var name=document.getElementById("name").value;
 		var age=document.getElementById("age").value;
@@ -146,12 +143,12 @@
 			return false;
 		}
 		//서버로 전송
-		document.newMember.submit();
+		return document.updateMember.submit();
 	}
 </script>
  
  
-<title>회원 가입</title>
+<title>회원 수정</title>
   <!-- Bootstrap CSS -->
  <style>
  	label {
@@ -161,7 +158,7 @@
 </head>
 <body>
 <%-- 유효성검사 필요 --%>
-	<%@ include file="dbconn.jsp" %>
+	<%@ include file="top.jsp" %>
 	
 	<%-- menu.jsp에서 전달된 아이디에 대한 내역을 검색 --%>
 	<sql:query var="rs" dataSource="${conn }">
@@ -177,37 +174,37 @@
 
 <c:forEach var="row" items="${rs.rows }">
 	<div class="container" style="font-family: 'Jua', sans-serif;">
-		<form name="newMember" class="form-horizontal" action="processUpdateMember.jsp" method="post">
+		<form name="updateMember" class="form-horizontal" action="processUpdateMember.jsp" method="post" >
 	
 			<div class="form-group  row">
 				<label class="col-sm-2">아이디</label>
 				<div class="col-sm-3">
-					<input  name="id" type="text" class="form-control text-center" value="<c:out value='${row.id }'/>" readonly="readonly">
+					<input  name="id" id="id" type="text" class="form-control text-center" value="<c:out value='${row.id }'/>" readonly="readonly">
 				</div>
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">비밀번호</label>
 				<div class="col-sm-3">
-					<input  name="passwd" type="password" class="form-control text-center" value="<c:out value='${row.passwd }'/>" readonly="readonly">
+					<input  name="passwd" id="passwd" type="password" class="form-control text-center" value="<c:out value='${row.passwd }'/>" readonly="readonly">
 				</div>
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">이름</label>
 				<div class="col-sm-3">
-					<input  name="name" type="text" class="form-control text-center" value="<c:out value='${row.name }'/>" >
+					<input  name="name" id="name" type="text" class="form-control text-center" value="<c:out value='${row.name }'/>" >
 				</div>
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">나이</label>
 				<div class="col-sm-3">
-					<input  name="age" type="text" class="form-control text-center" value="<c:out value='${row.age }'/>" >
+					<input  name="age" id="age" type="text" class="form-control text-center" value="<c:out value='${row.age }'/>" >
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-2">성별</label>
 				<div class="col-sm-10">
-					<input name="gender" type="radio" value="남" <c:if test="${row.gender=='남' }">checked</c:if>/><span>남</span> 
-					<input name="gender" type="radio" value="여" <c:if test="${row.gender=='여' }">checked</c:if>/><span>여</span>
+					<input name="gender" id="gender" type="radio" value="남" <c:if test="${row.gender=='남' }">checked</c:if>/><span>남</span> 
+					<input name="gender" id="gender" type="radio" value="여" <c:if test="${row.gender=='여' }">checked</c:if>/><span>여</span>
 				</div>
 			</div>
 		
@@ -253,12 +250,13 @@
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-6 text-center">
-					<input type="button" class="col-sm-3 btn btn-primary" value="등록" onclick="checkValue()"> 
+					<input type="button" class="col-sm-3 btn btn-primary" value="수정" onclick="return checkValue()"> 
 					<input type="reset" class="col-sm-3 btn btn-warning" value="취소">
 				</div>
 			</div>
 		</form>
 	</div>
 	</c:forEach>
+	<%@ include file="bottom.jsp" %>
 </body>
 </html>

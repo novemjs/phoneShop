@@ -10,7 +10,7 @@ import java.sql.Connection;
 import phoneMarket.dao.BoardDAO;
 
 public class AdminDeleteService {
-	public boolean remove(int num) {
+	public boolean remove(int numb) {
 		Connection con=getConnection();
 		
 		BoardDAO boardDAO=BoardDAO.getInstance();
@@ -19,7 +19,7 @@ public class AdminDeleteService {
 		
 		boardDAO.setConnection(con);
 		
-		int removeCount=boardDAO.removeAdmin(num);
+		int removeCount=boardDAO.removeAdmin(numb);
 		
 		if(removeCount>0) {
 			commit(con);

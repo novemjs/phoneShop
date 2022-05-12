@@ -12,11 +12,12 @@ public class AdminDeleteAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		int num=Integer.parseInt(request.getParameter("num"));
+		int numb=Integer.parseInt(request.getParameter("numb"));
+		System.out.println("번호야 넘어와라"+numb);
 
 		AdminDeleteService adminDeleteService=new AdminDeleteService();
 		
-		boolean isRemoveSuccess = adminDeleteService.remove(num);
+		boolean isRemoveSuccess = adminDeleteService.remove(numb);
 		
 		ActionForward forward = null;
 		

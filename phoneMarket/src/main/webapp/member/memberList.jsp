@@ -29,8 +29,8 @@
 	<sql:query var="rs" dataSource="${conn }">
 		select*from member order by id
 	</sql:query>
-	<h1 style="text-align:center;">회원관리</h1>
-	<table class="table table-striped">
+	<h1 style="text-align:center;font-family: 'Jua', sans-serif;">회원관리</h1>
+	<table class="table table-striped" style="font-family: 'Jua', sans-serif;">
 		
 		<tr>
 			<th width="10%">아이디</th>

@@ -17,7 +17,7 @@ public class PhoneCartQtyDownAction implements Action {
 		//장바구니에서 삭제처리되면 수량 감소 처리
 		phoneCartQtyDownService.downCartQty(name,request);
 		
-		//핸드폰 목록으로 이동
+		//강아지 목록으로 이동
 		ActionForward forward = 
 				new ActionForward("phoneCartList.phone",true);
 		

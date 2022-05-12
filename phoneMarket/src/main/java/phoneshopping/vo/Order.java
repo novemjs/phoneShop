@@ -1,6 +1,7 @@
 package phoneshopping.vo;
 
 public class Order {
+	private int ordersnt;
 	private int id;//핸드폰 상품번호
 	private String userid;
 	private String phoneName;
@@ -12,6 +13,10 @@ public class Order {
 	private String memo;
 	private int price;
 	private int cnt;
+	private String orderDate;
+	private String ordering;//배송여부
+	
+	public Order() {};
 
 	
 	public Order(int id,String userid,String phoneName, String name, String postcd, String addr1, String addr2, int phone, String memo, int price,int cnt) {
@@ -81,7 +86,7 @@ public class Order {
 		return price;
 	}
 
-	public void setPrice(int oPrice) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
@@ -111,6 +116,36 @@ public class Order {
 
 	public int getId() {
 		return id;
+	}
+
+
+	public String getOrderDate() {
+		return orderDate;
+	}
+
+
+	public void setOrderDate(String orderDate) {
+		this.orderDate = orderDate;
+	}
+
+
+	public String getOrdering() {
+		return ordering;
+	}
+
+
+	public void setOrdering(String ordering) {
+		this.ordering = ordering;
+	}
+
+
+	public int getOrdersnt() {
+		return ordersnt;
+	}
+
+
+	public void setOrdersnt(int ordersnt) {
+		this.ordersnt = ordersnt;
 	}
 	
 	

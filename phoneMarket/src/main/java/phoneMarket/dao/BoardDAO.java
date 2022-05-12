@@ -327,13 +327,13 @@ public class BoardDAO {
 		return isWriter;
 	}
 	//관리자 모드 삭제
-	public int removeAdmin(int num) {
+	public int removeAdmin(int numb) {
 		int removeCount=0;
 		PreparedStatement pstmt=null;
 		String sql="delete from board where board_num=?";
 		try {
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, num);
+			pstmt.setInt(1, numb);
 			removeCount=pstmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

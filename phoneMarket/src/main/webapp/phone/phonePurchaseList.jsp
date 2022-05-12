@@ -35,33 +35,50 @@
 			<table class="table table-striped" style="text-align:center">
 				<tr id="tr_top">
 					<td>핸드폰 이름</td>
+					<td>구매 갯수</td>
 					<td>가격</td>
 					<td>요청사항</td>
 					<td>입력주소</td>
 					<td>상세주소</td>
-					<td>취소여부</td>
 					<td>구매일자</td>
+					<td>취소여부</td>
+					<td>배송여부</td>
 					<td>리뷰</td>
 					
 				</tr>
 				<tr>
 					<td><c:out value="${par.phoneName }"/></td>
+					<td><c:out value="${par.cnt }"/></td>
 					<td><c:out value="${par.orderPrice }"/></td>
 					<td><c:out value="${par.memo }"/></td>
 					<td><c:out value="${par.addr1 }"/></td>
 					<td><c:out value="${par.addr2 }"/></td>
-					<td><input type="submit" value="주문취소"></td>
 					<td><c:out value="${par.orderDate }"></c:out></td>
-					</form>
-					<form action="reviewPhone.phone" method="post">
-					<td>
-						<input type="hidden" value="${par.id }" name="id">
-						<input type="hidden" value="${sessionId }" name="userId">
-						<input type="hidden" value="${par.phoneName }" name="phoneName">
-						<textarea rows="3" cols="30" name="review"></textarea>
-						<input type="submit" value="리뷰하기" onclick="review()">
+					<td><c:out value="${par.ordering }"></c:out></td>
+					<c:if test="${par.ordering eq '배송준비중' }">
+						<td>
+						<input type="hidden" name="cnt" value="${par.cnt }">
+						<input type="submit" value="주문취소">
 					</td>
+					</c:if>
 					</form>
+					<c:if test="${par.ordering eq '배송완료' }">
+						<td>
+							배송이완료되어 취소할수없습니다!
+						</td>
+						<form action="reviewPhone.phone" method="post">
+						<td>
+							<input type="hidden" value="${par.id }" name="id">
+							<input type="hidden" value="${sessionId }" name="userId">
+							<input type="hidden" value="${par.phoneName }" name="phoneName">
+							<textarea rows="3" cols="30" name="review"></textarea>
+							<input type="submit" value="리뷰하기" onclick="review()">
+						</td>
+						</form>
+					</c:if>
+					<c:if test="${par.ordering eq '배송준비중' }">
+						<td>배송이 완료되어야 리뷰할수 있습니다!</td>
+					</c:if>
 				</tr>
 			</table>
 			</form>

@@ -118,7 +118,7 @@
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneRegistForm.jsp"/>">상품 등록</a></li>		
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/adminPhoneList.jsp"/>">상품 목록</a></li>
 						              <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/member/memberList.jsp"/>">회원목록</a></li>
-							          <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/member/logoutMember.jsp"/>">로그아웃 </a></li>
+							          <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/member/logout.jsp"/>">로그아웃 </a></li>
 							          <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/adminBoard.jsp"/>">게시판 관리</a></li>
 								      <li><a class="dropdown-item" href="<c:url value="http://localhost:8080/phoneMarket/phone/phoneSellList.jsp"/>">판매 현황</a></li>
 							        </ul>
@@ -143,6 +143,5 @@
         </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
     </body>
 </html>

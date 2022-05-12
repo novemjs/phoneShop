@@ -15,7 +15,7 @@
 <body>
 <%@ include file="top.jsp" %>
 <sql:query var="an" dataSource="${conn }">
-	select * from phone where kind='안드로이드'
+	select * from phone where kind='안드로이드' order by readcount;
 </sql:query>
 	<section class="py-1" style="font-family: 'Jua', sans-serif;">
 		<div class="container px-4 px-lg-5 mt-5" >

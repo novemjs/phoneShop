@@ -39,7 +39,7 @@ public class PhoneOrderAction implements Action{
 					request.getParameter("addr2"),
 					Integer.parseInt(request.getParameter("phone")),
 					request.getParameter("memo"),
-					orderList.get(i).getPrice(),
+					Integer.parseInt(request.getParameter("orderPrice")),
 					cnt);
 			isOrderSuccess=phoneOrderService.orderAmt(order,totalCnt);
 			stockdown=phoneOrderService.down(order,cnt);

@@ -36,15 +36,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <body>
 	<%@ include file="top.jsp" %>
 	<section id="registForm">
-		<header>
+		<header style="font-family: 'Jua', sans-serif;">
 			<h2>휴대폰 상품등록</h2>
 		</header>
 		<%-- 등록처리 후 강아지 목록으로 이동 --%>
 		<form action="phoneRegist.phone" method="post" name="writeForm" enctype="multipart/form-data">
-			<table class="table table-striped" style="height:300px;">
+			<table class="table table-striped" style="height:300px; font-family: 'Jua', sans-serif;">
 				<tr>
 					<td colspan="2" style="text-align:center">
 						<a href="phoneList.phone">목록보기</a>

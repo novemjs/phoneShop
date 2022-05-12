@@ -13,10 +13,11 @@
 	<sql:query var="board" dataSource="${conn }">
 		select * from board
 	</sql:query>
-	<h3 style="text-align:center;">게시판 관리</h3>
+	<% int count=1; %>
+	<h3 style="text-align:center;font-family: 'Jua', sans-serif;">게시판 관리</h3>
 		<form action="/phoneMarket/adminDelete.bo" method="post" name="listForm">
-			<table class="table table-striped">
-				<c:forEach var="bo" items="${board.rows }" varStatus="status">
+			<table class="table table-striped" style="font-family: 'Jua', sans-serif;">
+				<c:forEach var="bo" items="${board.rows }">
 					<tr class="table-primary">
 						<td>#</td>
 						<td>제목</td>
@@ -27,14 +28,14 @@
 						<td>#삭제</td>
 					</tr>
 					<tr>
-						<td>${status.count }</td>
+						<td><%=count++ %></td>
 						<td>${bo.board_subject }</td>
 						<td>${bo.board_name }</td>
 						<td>${bo.board_content }</td>
 						<td>${bo.board_date }</td>
 						<td>${bo.board_readcount }</td>
 						<td>
-							<input type="hidden" name="num" value="${bo.board_num }">
+							<input type="hidden" name="numb" value="${bo.board_num }">
 							<input type="button" value="삭제하기" onclick="deletego();">
 						</td>
 					</tr>
