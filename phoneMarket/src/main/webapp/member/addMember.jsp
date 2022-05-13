@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- <script>
 	$(document).ready(function () {
 	   $(function () {
@@ -90,15 +91,6 @@
         }).open();
     }
 </script>
-<!-- <script>
-	function idCheck(){
-		var form1=document.newMember;
-		var user_id=form1.id.value;
-		var url="idCheck.jsp?id="+user_id;
-		window.open(url,"IdCheck","toolbar=no,location=no,status=no,menubar=no,scrollbar=no,resizable=no");
-		return;
-	}
-</script>  -->
 
 <script>
 
@@ -160,6 +152,33 @@
 		return document.newMember.submit();
 		
 	}		
+	
+	
+	//아이디 중복체크
+	$(document).ready(function(){
+		$('#id').focusout(function(){
+			let userId=$('#id').val();
+			
+			$.ajax({
+				url:"IdCheckService.phone",
+				type:"post",
+				data:{userId: userId},
+				dataType:'json',
+				success:function(result){
+					if(result==0){
+						$("#checkId").html('이미 존재하는 아이디입니다');
+						$("#checkId").attr('color','red');
+					}else{
+						$("#checkId").html('사용할 수 있는 아이디입니다');
+						$("#checkId").attr('color','green');
+					}
+				},
+				error:function(){
+					alert("서버 요청실패");
+				}
+			}) 
+		});
+	});
 </script>
 
 <title>회원 가입</title>
@@ -177,7 +196,6 @@
 			<h1 class="display-6">회원 가입</h1>
 		</div>
 	</div>
-
 	<div class="container" style="font-family: 'Jua', sans-serif;">
 		<form name="newMember" class="form-horizontal" action="processAddMember.jsp" method="post" onSubmit="return check()">
 	
@@ -185,6 +203,7 @@
 				<label class="col-sm-2">아이디</label>
 				<div class="col-sm-3">
 					<input  name="id" id="id" type="text" class="form-control text-center" placeholder="아이디입력" >
+					<font id="checkId" size="3"></font>
 				</div>
 			</div>
 			<div class="form-group  row">

@@ -185,7 +185,7 @@
 			<div class="form-group  row">
 				<label class="col-sm-2">비밀번호</label>
 				<div class="col-sm-3">
-					<input  name="passwd" id="passwd" type="password" class="form-control text-center" value="<c:out value='${row.passwd }'/>" readonly="readonly">
+					<input  name="passwd" id="passwd" type="password" class="form-control text-center" value="<c:out value='${row.passwd }'/>" >
 				</div>
 			</div>
 			<div class="form-group  row">

@@ -13,7 +13,8 @@
 	
 	<sql:update dataSource="${conn }">
 		update member
-		   set name = ?,
+		   set password = ?,
+		   	   name = ?,
 		       age = ?,
 		       gender = ?,
 		       email = ?,
@@ -23,6 +24,7 @@
 		       addr2 = ?,
 		       updatedate = now()
 		 where id = ?
+		 <sql:param value="${param.password }"/>
 		 <sql:param value="${param.name }"/>
 		 <sql:param value="${param.age }"/>
 		 <sql:param value="${param.gender }"/>

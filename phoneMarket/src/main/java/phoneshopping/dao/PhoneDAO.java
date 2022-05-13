@@ -498,5 +498,32 @@ public class PhoneDAO {
 		return sellList;
 	}
 	
+	//아이디 중복체크 ajax
+	public int checkId(String userId) {
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int idCheck=0;
+		
+		String sql="select * from member where id=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next() || userId.equals("")) {
+				idCheck=0;
+			}else {
+				idCheck=1;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return idCheck;
+	}
+	
 	
 }

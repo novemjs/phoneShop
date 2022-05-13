@@ -1,6 +1,7 @@
 package phoneshopping.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,6 +29,7 @@ import phoneshopping.action.PhoneReviewModifyAction;
 import phoneshopping.action.PhoneSendAction;
 import phoneshopping.action.PhoneUpdateAction;
 import phoneshopping.action.PhoneViewAction;
+import phoneshopping.dao.PhoneDAO;
 import phoneshopping.vo.ActionForward;
 
 @WebServlet("*.phone")
@@ -204,6 +206,22 @@ public class PhoneFrontController extends HttpServlet {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		//아이디 중복체크 ajax
+		}else if(command.equals("/member/IdCheckService.phone")) {
+			
+			PhoneDAO dao=PhoneDAO.getInstance();
+			String userId=req.getParameter("userId");
+			
+			PrintWriter out=resp.getWriter();
+			
+			int idCheck=dao.checkId(userId);
+			if(idCheck==0) {
+				System.out.println("이미 존재하는 아이디");
+			}else if(idCheck==1){
+				System.out.println("사용 가능한 아이디");
+			}
+			
+			out.write(idCheck+"");
 		}
 		
 		if(forward != null) {
